@@ -1,5 +1,5 @@
 # Gmailer
-Sends email using a Gmail account.
+Sends email via a Gmail account.
 
 ## Notes
 Signing into Gmail with an app password: https://support.google.com/accounts/answer/185833
