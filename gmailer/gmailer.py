@@ -14,6 +14,13 @@ gmail_cfg = json.load(json_file)
 
 
 def send_email(recipient: str, subject: str, message: str):
+    """send_email sends email via a Gmail account.
+
+    Args:
+        recipient (str): the recipient's email address.
+        subject (str): the email subject.
+        message (str): the body of the email.
+    """    
     msg = EmailMessage()
     msg["to"] = recipient
     msg["from"] = gmail_cfg["email"]
