@@ -20,7 +20,7 @@ def send_email(recipient: str, subject: str, message: str):
         recipient (str): the recipient's email address.
         subject (str): the email subject.
         message (str): the body of the email.
-    """    
+    """
     msg = EmailMessage()
     msg["to"] = recipient
     msg["from"] = gmail_cfg["email"]
