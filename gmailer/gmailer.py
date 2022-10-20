@@ -8,9 +8,7 @@ Add your Gmail information to config.json
 import smtplib
 import json
 from email.message import EmailMessage
-
-json_file = open("config.json")
-gmail_cfg = json.load(json_file)
+import pathlib
 
 
 def send_email(recipient: str, subject: str, message: str):
@@ -32,3 +30,7 @@ def send_email(recipient: str, subject: str, message: str):
         smtp.login(gmail_cfg["email"], gmail_cfg["app_pwd"])
         smtp.send_message(msg)
         print("Email sent!")
+
+
+json_file = pathlib.Path(__file__).parent.joinpath("config.json")
+gmail_cfg = json.load(json_file)
