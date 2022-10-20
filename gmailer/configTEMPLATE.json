@@ -1,0 +1,6 @@
+{
+    "server" : "SMTP SERVER",
+    "port" : "SMTP PORT",
+    "email" : "EMAIL",
+    "app_pwd": "PASSWORD"
+}
