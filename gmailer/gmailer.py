@@ -11,6 +11,14 @@ from email.message import EmailMessage
 import pathlib
 
 
+def gmail_config():
+    json_file = pathlib.Path(__file__).parent.joinpath("config.json")
+    with open(json_file) as f:
+        gmail_cfg = json.load(f)
+
+    return gmail_cfg
+
+
 def send_email(recipient: str, subject: str, message: str):
     """send_email sends email via a Gmail account.
 
@@ -19,6 +27,7 @@ def send_email(recipient: str, subject: str, message: str):
         subject (str): the email subject.
         message (str): the body of the email.
     """
+    gmail_cfg = gmail_config()
     msg = EmailMessage()
     msg["to"] = recipient
     msg["from"] = gmail_cfg["email"]
@@ -30,7 +39,3 @@ def send_email(recipient: str, subject: str, message: str):
         smtp.login(gmail_cfg["email"], gmail_cfg["app_pwd"])
         smtp.send_message(msg)
         print("Email sent!")
-
-
-json_file = pathlib.Path(__file__).parent.joinpath("config.json")
-gmail_cfg = json.load(json_file)
