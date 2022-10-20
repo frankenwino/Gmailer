@@ -11,7 +11,13 @@ from email.message import EmailMessage
 import pathlib
 
 
-def gmail_config():
+def gmail_config() -> dict:
+    """gmail_config handles the opening of a json file and converting its
+    contents to a dictionary.
+
+    Returns:
+        dict: Gmail server and login credentials.
+    """    
     json_file = pathlib.Path(__file__).parent.joinpath("config.json")
     with open(json_file) as f:
         gmail_cfg = json.load(f)
